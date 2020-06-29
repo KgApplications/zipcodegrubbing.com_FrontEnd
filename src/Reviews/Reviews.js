@@ -3,7 +3,8 @@ import Axios from 'axios';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Header from '../Containers/Header';
-import './Reviews.css';
+import { withStyles } from '@material-ui/core/styles';
+import styles from './ReviewsStyles';
 
 class reviews extends Component {
     state = {
@@ -21,37 +22,44 @@ class reviews extends Component {
     }
 
     render() {
+        const {classes} = this.props
+
         if (this.state.Reviews.length > 0) {
         return(
-            <div className="reviews__containers">
+            <div>
                 <Header></Header>
-                <Typography variant='h4' className="title">
-                    User Reviews
-                </Typography>
-                {this.state.Reviews.map(res => {
-                    return(
-                        <Paper variant="elevation" elevation="10">
-                            <Typography variant='h5'>
-                                {res.review.review_text}
-                            </Typography>
-                            <Typography variant='h5' color="primary">
-                                {res.review.review_time_friendly}
-                            </Typography>
-                        </Paper>
-                    )
-                })}
+                <div className={classes.root}>
+                    <Typography variant='h4' className="title">
+                        User Reviews
+                    </Typography>
+                    {this.state.Reviews.map(res => {
+                        return(
+                            <Paper variant="elevation" elevation="10" className={classes.review}>
+                                <Typography variant='h5'>
+                                    {res.review.review_text}
+                                </Typography>
+                                <Typography variant='h5' color="primary">
+                                    {res.review.review_time_friendly}
+                                </Typography>
+                            </Paper>
+                        )
+                    })}
+                </div>
             </div>
         )
         } else {
             return(
-                <Paper variant="elevation" elevation="10" className="noReviews__container">
-                    <Typography variant='h3' className="noReviews">
-                        No Reviews...
-                    </Typography>
-                </Paper>
+                <div>
+                    <Header></Header>
+                    <Paper variant="elevation" elevation="10" className={classes.root}>
+                        <Typography variant='h3' className={classes.review}>
+                            No Reviews...
+                        </Typography>
+                    </Paper>
+                </div>
             )
         }
     }
 }
 
-export default reviews
+export default withStyles(styles)(reviews)

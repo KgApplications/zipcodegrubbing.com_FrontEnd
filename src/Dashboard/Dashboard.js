@@ -7,6 +7,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import Paper from '@material-ui/core/Paper';
 import AppBar from '@material-ui/core/AppBar';
 import { withStyles } from '@material-ui/core/styles';
+import Header from '../Containers/Header';
 import styles from './DashboardStyles'; 
 
 class dashboard extends Component {
@@ -15,42 +16,15 @@ class dashboard extends Component {
         error: "",
         locationData: []
     }
-
     render() {
         const {classes} = this.props
         return(
             <div>
-                <AppBar position="fixed">
-                    <Toolbar>
-                    <IconButton
-                    edge="start"
-                    className={classes.menuButton}
-                    color="inherit"
-                    aria-label="open drawer">
-                    <Menu></Menu>
-                    </IconButton>
-                    <Typography className={classes.title} variant="h6" noWrap>
-                        Location restaurants
-                    </Typography>
-                        <div className={classes.search}>
-                        <div className={classes.searchIcon}>
-                    <SearchIcon />
-                    </div>
-                        <InputBase
-                        id="locationInput"
-                        placeholder="Search ZipCode…"
-                        classes={{
-                            root: classes.inputRoot,
-                            input: classes.inputInput,
-                        }}
-                        onChange={event => this.locationInput(event)}
-                        inputProps={{ 'aria-label': 'search' }}
-                        />
-                    </div>
-                    <Button color="inherit" onClick={() => this.locationSubmit()}>Submit Location</Button>
-                    </Toolbar>
-                </AppBar>
-                    <ViewBox locations={this.state.locationData}></ViewBox>
+                <Header
+                change={event => this.locationInput(event)}
+                submit={() => this.locationSubmit()}
+                />
+                <ViewBox locations={this.state.locationData}></ViewBox>
             </div>
         )
     }
