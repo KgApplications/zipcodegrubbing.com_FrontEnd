@@ -1,30 +1,43 @@
 import React, {Component} from 'react';
-import './ViewBox.css';
+import { Link } from 'react-router-dom';
+import { withStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+import { Card, Typography } from '@material-ui/core';
+import Axios from 'axios';
+import styles from './ViewBoxStyles';
 
 class viewBox extends Component {
-    render() {
-        if (this.props.locations !== null) {
-            return (
-                <div className="viewBox__container">
-                    <div className="viewBox__infoContainer">
-                        <div className="viewBox__info">
-                            <h1>
-                                {this.props.locations.name}
-                            </h1>
-                            <h2>
-                                {this.props.locations.rating}/5
-                            </h2>
-                        </div>
-                        <div className="viewBox__ImageCaption">
-                            <p>
-                                {this.props.locations.photo.caption}
-                            </p>
-                        </div>
-                    </div>
 
-                    <div className="viewBox__ImageContainer">
-                        <img src={this.props.locations.photo.images.original.url} className="viewBox__image"></img>
-                    </div>
+    render() {
+        const {classes} = this.props
+        console.log(classes)
+
+        if (this.props.locations.length > 0) {
+            return (
+                <div className={classes.root}>
+                    {this.props.locations.map((res, index) => {
+                        return (
+                            <Paper key={index} className={classes.restaurant} variant="elevation" elevation="10">
+                                <Link to={"restaurant/" + res.restaurant.id + "/reviews"} className={classes.link}>
+                                    <Typography variant="h3">
+                                        {res.restaurant.name}
+                                    </Typography>
+                                    <Typography variant="h4">
+                                        {res.restaurant.cuisines}
+                                    </Typography>
+                                    <Typography variant="h5">
+                                        {res.restaurant.phone_numbers}
+                                    </Typography>
+                                    <Typography variant="h6">
+                                        {res.restaurant.location.address}
+                                    </Typography>
+                                    <Typography variant="h6">
+                                        {res.restaurant.location.locality}
+                                    </Typography>
+                                </Link>
+                            </Paper>
+                        )
+                    })}
                 </div>
             )
         } else {
@@ -39,4 +52,4 @@ class viewBox extends Component {
     }
 }
 
-export default viewBox
+export default withStyles(styles)(viewBox)

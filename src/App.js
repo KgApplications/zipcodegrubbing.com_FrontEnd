@@ -1,12 +1,16 @@
 import React from 'react';
 import './App.css';
+import { BrowserRouter } from 'react-router-dom';
 import DashBoard from './Dashboard/Dashboard';
+import Routing from './Routing';
 
 function App() {
   return (
-    <div className="App">
-      <DashBoard></DashBoard>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Routing></Routing>
+      </div>
+    </BrowserRouter>
   );
 }
 
