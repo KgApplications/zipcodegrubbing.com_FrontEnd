@@ -31,7 +31,7 @@ class dashboard extends Component {
 
     async locationSubmit() {
         if (this.state.location !== null) {
-            await axios.get("http://localhost:8080/api/" + this.state.location +  "/restaurants/")
+            await axios.get("https://restaurantguide-281905.wl.r.appspot.com/api/" + this.state.location +  "/restaurants/")
                 .then(response => {
                     this.setState({
                         locationData: response.data.restaurants

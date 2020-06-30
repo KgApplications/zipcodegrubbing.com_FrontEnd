@@ -12,7 +12,7 @@ class reviews extends Component {
     }
 
     async componentDidMount() {
-        await Axios.get("http://localhost:8080/api/" + this.props.match.params.ID + "/reviews/")
+        await Axios.get("https://restaurantguide-281905.wl.r.appspot.com/api/" + this.props.match.params.ID + "/reviews/")
         .then(response => {
             this.setState({
                 Reviews: response.data.user_reviews
