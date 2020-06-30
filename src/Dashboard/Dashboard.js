@@ -22,7 +22,6 @@ class dashboard extends Component {
             <div>
                 <Header
                 change={event => this.locationInput(event)}
-                submit={() => this.locationSubmit()}
                 />
                 <ViewBox locations={this.state.locationData}></ViewBox>
             </div>
@@ -30,15 +29,13 @@ class dashboard extends Component {
     }
 
     locationInput(event) {
+        event.keyCode === 13 ? this.locationSubmit() :
         this.setState({
             location: event.target.value
         })
     }
 
-    async locationSubmit(event) {
-        let locationInput = document.getElementById("locationInput")
-        locationInput.value = ""
-
+    async locationSubmit() {
         if (this.state.location !== null) {
             await axios.get("http://localhost:8080/api/" + this.state.location +  "/restaurants/")
                 .then(response => {
