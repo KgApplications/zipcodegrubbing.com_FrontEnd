@@ -8,7 +8,8 @@ const styles = theme => ({
     },
     restaurant: {
         width: '50%',
-        margin: 'auto'
+        margin: 'auto',
+        padding: '10px'
     },
     imageContainer: {
         width: "30%",

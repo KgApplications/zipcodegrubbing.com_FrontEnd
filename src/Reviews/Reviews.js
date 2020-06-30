@@ -18,7 +18,6 @@ class reviews extends Component {
                 Reviews: response.data.user_reviews
             })
         })
-        console.log(this.state.Reviews)
     }
 
     render() {
@@ -32,9 +31,9 @@ class reviews extends Component {
                     <Typography variant='h4' className="title">
                         User Reviews
                     </Typography>
-                    {this.state.Reviews.map(res => {
+                    {this.state.Reviews.map((res, index )=> {
                         return(
-                            <Paper variant="elevation" elevation="10" className={classes.review}>
+                            <Paper variant="elevation" elevation={10} className={classes.review} key={index}>
                                 <Typography variant='h5'>
                                     {res.review.review_text}
                                 </Typography>
@@ -51,7 +50,7 @@ class reviews extends Component {
             return(
                 <div>
                     <Header></Header>
-                    <Paper variant="elevation" elevation="10" className={classes.root}>
+                    <Paper variant="elevation" elevation={10} className={classes.root}>
                         <Typography variant='h3' className={classes.review}>
                             No Reviews...
                         </Typography>

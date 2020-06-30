@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import { BrowserRouter } from 'react-router-dom';
-import DashBoard from './Dashboard/Dashboard';
 import Routing from './Routing';
 
 function App() {

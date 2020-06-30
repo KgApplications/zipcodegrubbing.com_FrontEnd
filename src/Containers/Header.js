@@ -1,6 +1,5 @@
-import React, {Component} from 'react';
-import ViewBox from '../ViewBox/ViewBox';
-import { Button, IconButton, InputBase, Toolbar, makeStyles, Typography } from '@material-ui/core';
+import React from 'react';
+import { IconButton, InputBase, Toolbar, makeStyles, Typography } from '@material-ui/core';
 import MenuItem from '@material-ui/core/MenuItem';
 import Badge from '@material-ui/core/Badge';
 import Menu from '@material-ui/core/Menu';
@@ -10,9 +9,8 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
-import Paper from '@material-ui/core/Paper';
 import AppBar from '@material-ui/core/AppBar';
-import { withStyles, fade } from '@material-ui/core/styles';
+import { fade } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
     grow: {
@@ -191,13 +189,13 @@ export default function PrimarySearchAppBar(props) {
           </div>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-            <IconButton aria-label="show 4 new mails" color="inherit">
-              <Badge badgeContent={4} color="secondary">
+            <IconButton aria-label="show 1 new mails" color="inherit">
+              <Badge badgeContent={1} color="secondary">
                 <MailIcon />
               </Badge>
             </IconButton>
-            <IconButton aria-label="show 17 new notifications" color="inherit">
-              <Badge badgeContent={17} color="secondary">
+            <IconButton aria-label="show 3 new notifications" color="inherit">
+              <Badge badgeContent={3} color="secondary">
                 <NotificationsIcon />
               </Badge>
             </IconButton>

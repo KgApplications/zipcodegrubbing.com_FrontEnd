@@ -1,11 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import ViewBox from '../ViewBox/ViewBox';
-import { Button, IconButton, InputBase, Toolbar, makeStyles, Typography } from '@material-ui/core';
-import { Menu} from '@material-ui/icons'
-import SearchIcon from '@material-ui/icons/Search';
-import Paper from '@material-ui/core/Paper';
-import AppBar from '@material-ui/core/AppBar';
 import { withStyles } from '@material-ui/core/styles';
 import Header from '../Containers/Header';
 import styles from './DashboardStyles'; 
@@ -17,7 +12,6 @@ class dashboard extends Component {
         locationData: []
     }
     render() {
-        const {classes} = this.props
         return(
             <div>
                 <Header

@@ -2,8 +2,7 @@ import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
-import { Card, Typography } from '@material-ui/core';
-import Axios from 'axios';
+import { Typography } from '@material-ui/core';
 import styles from './ViewBoxStyles';
 
 class viewBox extends Component {
@@ -15,8 +14,8 @@ class viewBox extends Component {
                 <div className={classes.root}>
                     {this.props.locations.map((res, index) => {
                         return (
-                            <Link to={"restaurant/" + res.restaurant.id + "/reviews"} className={classes.link}>
-                            <Paper key={index} className={classes.restaurant} variant="elevation" elevation="10">
+                            <Link to={"restaurant/" + res.restaurant.id + "/reviews"} className={classes.link} key={index}>
+                            <Paper className={classes.restaurant} variant="elevation" elevation={15}>
                                     <div className={classes.imageContainer}>
                                         <img src={res.restaurant.cuisines === "Mexican" ? "images/mexican.svg" : "images/american.svg" } alt="food" className={classes.Img}></img>
                                     </div>
