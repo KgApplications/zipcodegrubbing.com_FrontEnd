@@ -1,0 +1,43 @@
+.container {
+    width: 100%;
+    max-width: 1300px;
+    height: 500px;
+    margin: auto;
+    position: relative;
+    top: 50px;
+    display: 'flex';
+    flex-direction: 'row';
+}
+
+.row1 {
+    width: '50%';
+    margin: 15px;
+    position: relative;
+}
+
+.row2 {
+    width: '50%';
+    margin: 20px;
+    position: relative;
+}
+
+.image {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.title {
+    position: absolute; 
+    top: 200px; 
+    left: 0; 
+    width: 100%; 
+}
+
+.title span {
+    color: white; 
+    font: bold 40px/45px Helvetica, Sans-Serif; 
+    letter-spacing: -1px;  
+    background: rgb(0, 0, 0); /* fallback color */
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px; 
+}

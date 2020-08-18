@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
     search: {
       position: 'relative',
       borderRadius: theme.shape.borderRadius,
-      backgroundColor: fade(theme.palette.common.white, 0.15),
+      backgroundColor: fade(theme.palette.common.white, 0.50),
       '&:hover': {
         backgroundColor: fade(theme.palette.common.white, 0.25),
       },
@@ -130,7 +130,7 @@ export default function PrimarySearchAppBar(props) {
     >
       <MenuItem>
         <IconButton aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="secondary">
+          <Badge badgeContent={3} color="secondary">
             <MailIcon />
           </Badge>
         </IconButton>
@@ -160,7 +160,7 @@ export default function PrimarySearchAppBar(props) {
 
   return (
     <div className={classes.grow}>
-      <AppBar position="static">
+      <AppBar position="fixed" style={{ backgroundColor: '#8B0000'}}>
         <Toolbar>
           <IconButton
             edge="start"
