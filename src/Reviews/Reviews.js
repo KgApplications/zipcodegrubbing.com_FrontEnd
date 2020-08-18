@@ -59,7 +59,7 @@ class reviews extends Component {
         } else {
             return(
                 <div>
-                    <Header></Header>
+                    <Header change={event => this.headerChange(event)}></Header>
                     <div className="root">
                         <h1 className="review">
                             No Reviews...

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 import ReactLoading from "react-loading";
 import StarRatings from '../Containers/StarRating/StarRating';
+import Images from './Images';
 import "./loading.css"
 import "./ViewBox.css"
 
@@ -23,7 +24,7 @@ class viewBox extends Component {
                             <Link to={"restaurant/" + res.restaurant.id + "/reviews"} className="link" key={index}>
                             <div className="restaurant">
                                 <div className="imageContainer">
-                                    <img src={res.restaurant.cuisines === "Mexican" ? "images/mexican.svg" : "images/american.svg" } alt="food" className="Img"></img>
+                                    <img src={ Images(res.restaurant.cuisines) } alt="food" className="Img"></img>
                                 </div>
                                 <div className="info">
                                     <h1 className="infoDescription">
