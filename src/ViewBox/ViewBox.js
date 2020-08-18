@@ -3,13 +3,18 @@ import { Link } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import { Typography } from '@material-ui/core';
+import ReactLoading from "react-loading";
 import styles from './ViewBoxStyles';
+import "./loading.css"
 
 class viewBox extends Component {
     render() {
-        const {classes} = this.props
-
-        if (this.props.locations.length > 0) {
+        const { classes } = this.props
+        if (this.props.loading === true) {
+            return(
+                <ReactLoading className="loading" type={"bars"} color={"black"} height={'25%'} width={'25%'}/>
+            )
+        } else {
             return (
                 <div className={classes.root}>
                     {this.props.locations.map((res, index) => {
@@ -40,16 +45,8 @@ class viewBox extends Component {
                         )
                     })}
                 </div>
-            )
-        } else {
-            return(
-                <div>
-                    <h1>
-                        No locations entered yet!
-                    </h1>
-                </div>
-            )
-        }
+            );
+            }
     }
 }
 
