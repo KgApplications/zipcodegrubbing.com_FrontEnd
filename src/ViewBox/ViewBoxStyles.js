@@ -1,29 +1,46 @@
 const styles = theme => ({
     root: {
-        margin: '75px'
+        margin: '75px',
+        width: '100%',
     },
     link: {
        color: 'inherit',
        textDecoration:  'none'
     },
     restaurant: {
-        width: '50%',
+        width: '75%',
+        height: '25vh',
         margin: 'auto',
-        padding: '10px'
+        padding: '20px',
+        marginBottom: '15px',
+        maxWidth: '1000px',
+        display: 'flex',
+        flexDirection: 'row',
     },
     imageContainer: {
-        width: "30%",
+        width: "25%",
         height: "100%",
-        display: "inline-block"
+        display: "inline-block",
+        position: 'relative',
     },
     info: {
-        width: '70%',
-        display: 'inline-block'
+        width: '50%',
+        display: 'inline-block',
+        position: 'relative',
+        top: '10px',
+    },
+    infoDescription: {
+        width: '100%',
     },
     Img: {
+        height: '100%',
+        width: '100%'
+    },
+    contact: {
+        width: '25%',
+        display: 'inline-block',
         position: 'relative',
-        top: "0",
-        left: "0",
+        top: '10px',
     }
 
 })

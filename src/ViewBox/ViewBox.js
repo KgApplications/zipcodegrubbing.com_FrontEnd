@@ -20,20 +20,19 @@ class viewBox extends Component {
                                         <img src={res.restaurant.cuisines === "Mexican" ? "images/mexican.svg" : "images/american.svg" } alt="food" className={classes.Img}></img>
                                     </div>
                                     <div className={classes.info}>
-                                        <Typography variant="h5">
+                                        <Typography className={classes.infoDescription} style={{ fontSize: "35px" }}>
                                             {res.restaurant.name}
-                                        </Typography>
-                                        <Typography variant="h6">
+                                            </Typography>
+                                        <Typography className={classes.infoDescription} style={{ fontSize: "20px" }}>
                                             {res.restaurant.cuisines}
                                         </Typography>
-                                        <Typography variant="h6">
-                                            {res.restaurant.phone_numbers}
-                                        </Typography>
-                                        <Typography variant="body1">
+                                    </div>
+                                    <div className={classes.contact}>
+                                        <Typography style={{ fontSize: "15px" }}>
                                             {res.restaurant.location.address}
                                         </Typography>
-                                        <Typography variant="body2">
-                                            {res.restaurant.location.locality}
+                                        <Typography className={classes.description} style={{ fontSize: "15px" }}>
+                                            {res.restaurant.phone_numbers}
                                         </Typography>
                                     </div>
                             </Paper>
