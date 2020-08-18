@@ -1,0 +1,115 @@
+.root {
+    margin: 75px;
+    width: 100%;
+}
+
+.link {
+   color: inherit;
+   text-decoration:  none;
+}
+
+.restaurant {
+    border: 1px solid black;
+    width: 75%;
+    height: 25vh;
+    margin: auto;
+    padding: 20px;
+    margin-bottom: 15px;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: row;
+}
+
+.imageContainer {
+    width: 25%;
+    height: 100%;
+    display: inline-block;
+    position: relative;
+}
+
+.info {
+    width: 50%;
+    display: inline-block;
+    position: relative;
+    top: 10px;
+}
+
+.infoDescription {
+    width: 100%;
+}
+
+.Img {
+    height: 100%;
+    width: 100%;
+}
+
+.contact {
+    width: 25%;
+    display: inline-block;
+    position: relative;
+    top: 10px;
+}
+
+@media (max-width: 650px) {
+    .root {
+        width: 100%;
+        margin: auto;
+        position: relative;
+        top: 45px;
+    }
+    
+    .link {
+       color: inherit;
+       text-decoration:  none;
+    }
+    
+    .restaurant {
+        border: 1px solid black;
+        height: 100px;
+        width: 90%;
+        margin-bottom: 10px;
+        max-width: 1000px;
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .imageContainer {
+        width: 25%;
+        display: inline-block;
+        position: relative;
+    }
+    
+    .info {
+        width: 50%;
+        display: inline-block;
+        position: relative;
+        top: -20px;
+    }
+    
+    .infoDescription {
+        width: 100%;
+    }
+    
+    .Img {
+        height: 100%;
+        width: 100%;
+    }
+    
+    .contact {
+        width: 25%;
+        display: inline-block;
+        top: -15px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    p {
+        font-size: 10px;
+    }
+
+    h2 {
+        font-size: 15px;
+    }
+}

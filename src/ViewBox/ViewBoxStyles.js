@@ -8,6 +8,7 @@ const styles = theme => ({
        textDecoration:  'none'
     },
     restaurant: {
+        border: '1px solid black',
         width: '75%',
         height: '25vh',
         margin: 'auto',

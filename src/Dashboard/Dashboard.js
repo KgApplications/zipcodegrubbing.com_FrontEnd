@@ -15,7 +15,6 @@ class dashboard extends Component {
         locationData: []
     }
     render() {
-        console.log(this.state.error)
         if (this.state.error === 404) {
             return(
                 <div>
