@@ -1,10 +1,15 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 import ReactLoading from "react-loading";
+import StarRatings from '../Containers/StarRating/StarRating';
 import "./loading.css"
 import "./ViewBox.css"
 
 class viewBox extends Component {
+    state = {
+        stars: 3
+    }
+    //{parseFloat(res.restaurant.user_rating.aggregate_rating, 10)}
     render() {
         if (this.props.loading === true) {
             return(
@@ -23,10 +28,11 @@ class viewBox extends Component {
                                 <div className="info">
                                     <h1 className="infoDescription">
                                         {res.restaurant.name}
-                                        </h1>
+                                    </h1>
                                     <h2 className="infoDescription">
                                         {res.restaurant.cuisines}
                                     </h2>
+                                    <StarRatings value={parseFloat(res.restaurant.user_rating.aggregate_rating, 10)}></StarRatings>
                                 </div>
                                 <div className='contact'>
                                     <p>

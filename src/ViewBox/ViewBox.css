@@ -80,10 +80,10 @@
     }
     
     .info {
-        width: 50%;
+        width: 60%;
         display: inline-block;
         position: relative;
-        top: -20px;
+        top: -30px;
     }
     
     .infoDescription {
@@ -96,7 +96,7 @@
     }
     
     .contact {
-        width: 25%;
+        width: 20%;
         display: inline-block;
         top: -15px;
     }
