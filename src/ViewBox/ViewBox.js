@@ -1,10 +1,6 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
-import { withStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import { h1 } from '@material-ui/core';
 import ReactLoading from "react-loading";
-//import styles from './ViewBoxStyles';
 import "./loading.css"
 import "./ViewBox.css"
 

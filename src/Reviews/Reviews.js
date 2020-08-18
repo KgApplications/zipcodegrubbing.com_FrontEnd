@@ -1,11 +1,7 @@
 import React, {Component} from 'react';
 import Axios from 'axios';
-import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
 import Header from '../Containers/Header';
-import { withStyles } from '@material-ui/core/styles';
-import { Redirect } from "react-router-dom";
-import styles from './ReviewsStyles';
+import './ReviewsStyles.css'
 
 class reviews extends Component {
     state = {
@@ -39,23 +35,22 @@ class reviews extends Component {
     }
 
     render() {
-        const {classes} = this.props
         if (this.state.Reviews.length > 0) {
         return(
             <div>
                 <Header change={event => this.headerChange(event)}></Header>
 
-                <div className={classes.root}>
+                <div className='root'>
                     {this.state.Reviews.map((res, index )=> {
                         return(
-                            <Paper variant="elevation" elevation={10} className={classes.review} key={index}>
-                                <Typography variant='h5'>
+                            <div className='review' key={index}>
+                                <h1>
                                     {res.review.review_text}
-                                </Typography>
-                                <Typography variant='h5' color="primary">
+                                </h1>
+                                <h1>
                                     {res.review.review_time_friendly}
-                                </Typography>
-                            </Paper>
+                                </h1>
+                            </div>
                         )
                     })}
                 </div>
@@ -65,15 +60,15 @@ class reviews extends Component {
             return(
                 <div>
                     <Header></Header>
-                    <Paper variant="elevation" elevation={10} className={classes.root}>
-                        <Typography variant='h3' className={classes.review}>
+                    <div className="root">
+                        <h1 className="review">
                             No Reviews...
-                        </Typography>
-                    </Paper>
+                        </h1>
+                    </div>
                 </div>
             )
         }
     }
 }
 
-export default withStyles(styles)(reviews)
+export default reviews

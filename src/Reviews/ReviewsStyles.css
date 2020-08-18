@@ -1,0 +1,31 @@
+.root {
+    margin: auto;
+    position: relative;
+    top: 150px;
+}
+.review {
+    width: 80%;
+    margin: auto;
+    max-width: 1000px;
+    margin-bottom: 30px;
+    border: 1px solid black;
+}
+
+@media (max-width: 650px) {
+    .root {
+        margin: auto;
+        position: relative;
+        top: 80px;
+    }
+    .review {
+        width: 80%;
+        margin: auto;
+        max-width: 1000px;
+        margin-bottom: 30px;
+        border: 1px solid black;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+}
