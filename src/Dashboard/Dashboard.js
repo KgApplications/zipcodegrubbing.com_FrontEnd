@@ -15,6 +15,7 @@ class dashboard extends Component {
         locationData: []
     }
     render() {
+        console.log(this.props.location.state)
         return(
             <div>
                 <Header
@@ -26,6 +27,24 @@ class dashboard extends Component {
                 }
             </div>
         ) 
+    }
+
+    componentDidMount() {
+        if (this.props.location.state === undefined) {
+            return null
+        } else {
+            this.setState({
+                EnteredInput: true
+            })
+            axios.get("https://restaurantguide-281905.wl.r.appspot.com/api/" + this.props.location.state.zipCode +  "/restaurants/")
+                .then(response => {
+                    this.setState({
+                        locationData: response.data.restaurants,
+                        loading: false
+                    })
+                });
+                window.history.replaceState(null, '')
+            };
     }
 
     locationInput(event) {

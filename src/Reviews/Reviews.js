@@ -4,11 +4,13 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Header from '../Containers/Header';
 import { withStyles } from '@material-ui/core/styles';
+import { Redirect } from "react-router-dom";
 import styles from './ReviewsStyles';
 
 class reviews extends Component {
     state = {
-        Reviews: []
+        Reviews: [],
+        Location: null,
     }
 
     async componentDidMount() {
@@ -20,17 +22,30 @@ class reviews extends Component {
         })
     }
 
+    redirect = () => {
+        if (this.state.Location !== null) {
+            this.props.history.push({
+            pathname: '/',
+            state: { zipCode: this.state.Location }
+            })
+        }
+    }
+
+    headerChange(event) {
+        event.keyCode === 13 ? this.redirect() :
+        this.setState({
+            Location: event.target.value
+        })
+    }
+
     render() {
         const {classes} = this.props
-
         if (this.state.Reviews.length > 0) {
         return(
             <div>
-                <Header></Header>
+                <Header change={event => this.headerChange(event)}></Header>
+
                 <div className={classes.root}>
-                    <Typography variant='h4' className="title">
-                        User Reviews
-                    </Typography>
                     {this.state.Reviews.map((res, index )=> {
                         return(
                             <Paper variant="elevation" elevation={10} className={classes.review} key={index}>
