@@ -9,24 +9,36 @@ import Emptly from '../Containers/EmptlySearch/EmptlySearch';
 class dashboard extends Component {
     state = {
         location: null,
-        error: "",
+        error: 0,
         EnteredInput: false, 
         loading: true,
         locationData: []
     }
     render() {
-        console.log(this.props.location.state)
-        return(
-            <div>
-                <Header
-                change={event => this.locationInput(event)}/>
-                {
-                    this.state.EnteredInput === false ? <Emptly></Emptly>
-                    : <ViewBox locations={this.state.locationData} loading={this.state.loading}>
-                    </ViewBox>
-                }
-            </div>
-        ) 
+        console.log(this.state.error)
+        if (this.state.error === 404) {
+            return(
+                <div>
+                    <Header
+                    change={event => this.locationInput(event)}/>
+                    <h1 style={{fontSize: '200px'}}>
+                        404
+                    </h1>
+                </div>
+            )
+        } else {
+            return(
+                <div>
+                    <Header
+                    change={event => this.locationInput(event)}/>
+                    {
+                        this.state.EnteredInput === false ? <Emptly></Emptly>
+                        : <ViewBox locations={this.state.locationData} loading={this.state.loading}>
+                        </ViewBox>
+                    }
+                </div>
+            ) 
+        }
     }
 
     componentDidMount() {
@@ -59,12 +71,24 @@ class dashboard extends Component {
             this.setState({
                 EnteredInput: true
             })
+            if (this.state.error !== 0) {
+                this.setState({
+                    error: 0
+                })
+            }
             await axios.get("https://restaurantguide-281905.wl.r.appspot.com/api/" + this.state.location +  "/restaurants/")
                 .then(response => {
-                    this.setState({
-                        locationData: response.data.restaurants,
-                        loading: false
-                    })
+                    if (response.data.restaurants !== null) {
+                        this.setState({
+                            locationData: response.data.restaurants,
+                            loading: false
+                        })
+                    } else {
+                        this.setState({
+                            error: 404,
+                            loading: false
+                        })
+                    }
                 })
         } else {
             this.setState({
