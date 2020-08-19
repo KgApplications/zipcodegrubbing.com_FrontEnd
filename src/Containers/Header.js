@@ -171,7 +171,7 @@ export default function PrimarySearchAppBar(props) {
             <MenuIcon />
           </IconButton>
           <Typography className={classes.title} variant="h6" noWrap>
-            Restaurant-Guide
+            Search by Zip Code 
           </Typography>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
