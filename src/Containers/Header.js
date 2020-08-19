@@ -171,14 +171,14 @@ export default function PrimarySearchAppBar(props) {
             <MenuIcon />
           </IconButton>
           <Typography className={classes.title} variant="h6" noWrap>
-            Search by Zip Code 
+            Restaurant Guide 
           </Typography>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
             </div>
             <InputBase
-              placeholder="Search…"
+              placeholder="Search Zip Code...."
               classes={{
                 root: classes.inputRoot,
                 input: classes.inputInput,
